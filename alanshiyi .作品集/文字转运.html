@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ <style>
+div,textarea,span,em,ul,li,h3,p{
+	margin:0px;
+	padding:0px;
+	font-family: '微软雅黑';
+	font-size: 16px;
+	font-style:normal;
+
+}
+
+#box{
+	width: 800px;
+    height: 400px;
+    border: 15px solid gray;
+    padding: 15px;
+    margin:0 auto;
+}
+
+
+#box textarea,p{
+	width: 300px;
+	height: 399px;
+	border: 1px solid dashed black;
+	float:left;
+
+}
+#box textarea{
+	background:green;
+}
+#box div{
+	width: 166px;
+	height: 400px;
+	float: left;
+	margin:0 15px;
+	text-align: center;
+
+}
+p{
+	background:green;
+	word-break:break-all;
+}
+
+#box h3{
+	text-align: center;
+	background-color: red;
+	color: #ffffff;
+	width: 166px;
+	height: 30px;
+	line-height: 30px;
+}
+#box ul{
+			list-style: none;
+			margin-top: 20px;
+			opacity:0;}
+
+#box ul li{
+			width: 15px;
+			height: 15px;
+			background-color:yellow;
+			margin:0 2px;
+			float: left;
+		}		
+
+ </style>
+
+<script>
+
+    var oBox=document.getElementById('box');
+	var oText=oBox.getElementsByTagName('textarea')[0];
+	var oP=oBox.getElementsByTagName('p')[0];		
+	var oDiv=oBox.getElementsByTagName('div')[0];
+	var oH3=oDiv.getElementsByTagName('h3')[0];						
+    var oSpan=oDiv.getElementsByTagName('span')[0];
+    var oEm=oDiv.getElementsByTagName('em')[0];
+    var oUl=oDiv.getElementsByTagName('ul')[0];
+    var oLi=oUl.getElementsByTagName('li');       
+    function getstyle(obj,arrt){//获取函数
+    	return 
+    	obj.currentStyle?obj.currentStyle[arrt]:getComputedStyle(obj)[attr];
+
+    }
+
+//移动函数
+oH3.onmouseover=function(){
+if(!oH3.off){
+	this.style.backgroundColor='gray';
+
+}else{
+	this.style.backgroundColor='black';
+}
+}
+
+
+
+
+
+
+
+
+</script>
+
+ </head>
+ <body>
+<div id="box">
+	<textarea></textarea>
+	<div>
+	     <h3>把文字右移</h3>
+	     <em>0</em><span>/0</span>
+	     <ul>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+		     <li></li>
+	     </ul>
+	</div>
+	<p></p>
+</div>
+ </body>
+ </body>
+</html>

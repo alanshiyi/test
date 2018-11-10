@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性读写操作</title>
+<style>
+*{margin: 0;
+padding: 0;}
+body, ul,li, a{
+	list-style:none;
+	text-decoration: none;
+}
+.wrap{
+	width: 250px;
+	height: 510px;
+    border-radius: 30px;
+	margin:50px auto;
+	border:2px solid #eee;
+	 overflow: hidden;
+	 position: relative;
+	
+}
+.content{
+   width: 200px;
+   height: 400px;
+   background: #fff;
+   margin:20px auto 0;
+  border:3px solid #000;
+
+}
+.title{
+    margin: 5px;
+    height: 20px;
+	font-size: 18px;
+	font-weight: bold;
+    text-align: center;
+   }
+#div1{
+
+height: 350px;
+ padding :3px;
+overflow:auto;
+background: #e8e8e8;
+
+}
+.foot{
+	background: #f1f1f1;
+	height:45px;
+}
+span{
+
+
+line-height: 35px;
+font-size: 16px;
+text-align: center;
+margin:2px;
+background: #fff;
+
+
+}
+input{
+	width: 115px;
+   height: 26px;
+	margin-right: 2px;
+	text-align: center;
+
+  }
+  .aj{
+  	width: 38px;
+  	height: 38px;
+  	border-radius: 19px;
+  	border:2px solid #eee;
+  	position: absolute;
+  	left:100px;
+    top:460px;
+  }
+
+
+.box p{
+
+	
+	padding:5px;
+	width:150px;
+	word-wrap: break-word;
+	border-radius: 6px;
+}
+	#box1{
+    margin-top:5px;
+    float:right;
+	}
+	#box1 span{
+		        float: right;
+               
+               margin-left:5px;}
+     #box1 p{
+     	float:right;
+     	background:#fff;
+     }          
+     #box2,#box2 span,#box2 p{
+     	float:left;
+     }
+
+	#box2{
+		margin-top:5px;
+	}
+	#box2 span{
+		margin-right: 5px;
+
+
+	}
+	#box2 p{ background:green ;
+	}
+</style>
+	<script >
+
+
+	/*
+  window.onload = function(){
+	var Obtn=document.getElementById("btn1")
+	var oText=document.getElementById("text1")
+	var oSelect=document.getElementById('select1')
+	var op1=document.getElementById('p1')
+	Obtn.onclick= function(){
+	//alert(oSelect.value)选择
+	//alert(oText.value)  文本输入
+	// alert(oText.value+'在'+oSelect.value)//字符串de链接 文本加按钮
+	// Obtn.value="button";改变button名称
+	// oText.value=oSelect.value;将选择的元素放到文本框 
+	//op1.innerHTML=oText.value;从文本输入文本在其他地方输出
+	//oText.value=""；清空文本框的值
+	//op1.innerHTML=oText.value+'在'+oSelect.value
+}
+}
+*/
+window.onload=function(){
+ var odiv=document.getElementById('div1')
+ var ospan=document.getElementById('nan')
+ var otext=document.getElementById('text1')
+ var obt=document.getElementById('btn1')
+  
+
+  
+  		
+  ospan.onclick=function(){
+  	if(ospan.innerHTML=='十一'){
+  		
+  		ospan.innerHTML='阿兰';
+
+  	}else{
+  		ospan.innerHTML='十一';
+  		
+  	}
+  }
+
+  
+
+ function fnmane(){
+   if (ospan.innerHTML=='十一'){
+
+odiv.innerHTML+='<div id="box1" class="box"<span>'+ospan.innerHTML+'</span><p>'+otext.value+'</p></div>';
+ otext.value='';
+ 
+   }
+   else{
+odiv.innerHTML+='<div id="box2" class="box"<span>'+ospan.innerHTML+'</span><p>'+otext.value+'</p></div>';
+otext.value ='';
+  }
+ }
+
+
+obt.onclick=function(){
+
+    if (otext.value =='') {
+    alert('请输入点内容吧!');
+   
+  return false;
+}
+	fnmane();
+}
+}
+</script>
+</head>
+<body>
+	<!--<input id ="text1" type='text' value="" >
+	<select id="select1">
+		<option value="北京">北京</option>
+		<option value="上海">上海</option>
+		<option value="杭州">杭州</option>
+	</select>
+<input id='btn1' type='button' value='按钮'>	
+<p  id='p1'> bdhsuigvrywo</p>
+<br>
+
+-->
+
+
+
+<div class="wrap">
+	<p class="title "> iphone 6plus</p>
+	<div  class="content">
+<div id='div1'></div>
+<div class="foot">
+<span id="nan">十一</span>
+<input id="text1" type="text" />
+<span  id="btn1">发送</span>
+<div class='aj'></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>随机图片滚动</title>
+	<style>
+		ul,li{padding: 0;margin: 0;list-style: none;}
+		#box{width: 1000px;height: 800px;border: 1px solid #333;position: relative;margin: 50px auto;}
+		ul{width: 1000px; height: 800px;}
+		ul li{width: 500px;height: 200px;position: absolute;overflow: hidden;}
+		ul li div{width: 500px;height: 400px;position: absolute;top: 0px;left: 0;}
+		ul li img{width: 500px;height: 200px;vertical-align: top;}
+	</style>
+	<script>
+		window.onload = function(){
+			aLi = document.getElementsByTagName('li');
+			var num = -1;
+			for (var i = 0; i < aLi.length; i++) {
+
+				aLi[i].Off = true;
+
+				if (i%2 == 0) {
+					aLi[i].style.left = '0px';
+					num ++;
+				}else{
+					aLi[i].style.right = '0px';
+				}
+				aLi[i].style.top = num * 200 + 'px';
+			}
+
+
+
+			setInterval(function(){
+				var i = Math.round(Math.random()*8);
+				if (aLi[i].Off) {
+					aLi[i].Off = false;
+					oDiv = aLi[i].getElementsByTagName('div')[0];
+					doMove(oDiv, 'top', 20, -200);
+				}else{
+					aLi[i].Off = true;
+					oDiv = aLi[i].getElementsByTagName('div')[0];
+					doMove(oDiv, 'top', 20, 0);
+				}
+			}, 1000)
+
+
+
+
+			function doMove(obj, attr, dir, target, endFN){
+
+				 dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir; 
+
+				 clearInterval(obj.timer);
+
+				obj.timer = setInterval(function(){
+
+					speed = parseInt(getStyle(obj, attr)) + dir;
+
+					if (speed > target && dir > 0 || speed < target && dir < 0) {
+						speed = target;
+					}
+
+					obj.style[attr] = speed + 'px';
+
+					if (speed === target) {
+						clearInterval(obj.timer);
+						if (endFN) {
+							endFN();
+						}
+					}
+
+				}, 30)
+			}
+
+			function getStyle(obj, attr){
+				return obj.currentStyle ?  obj.currentStyle[ attr ] : getComputedStyle(obj)[attr];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>
+				<div>
+					<img src="img/1.jpg" alt="">
+					<img src="img/2.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/3.jpg" alt="">
+					<img src="img/4.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/5.jpg" alt="">
+					<img src="img/6.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/7.jpg" alt="">
+					<img src="img/8.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/9.jpg" alt="">
+					<img src="img/10.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/11.jpg" alt="">
+					<img src="img/12.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/13.jpg" alt="">
+					<img src="img/14.jpg" alt="">
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/3.jpg" alt="">
+					<img src="img/8.jpg" alt="">
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

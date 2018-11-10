@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>热身运动</title>
+	<style>
+		.wrap{
+			
+			width: 400px;
+          border:1px solid #000;
+            font-size: 18px;
+            text-align:center;
+          margin:120px auto;
+          position: relative;
+         
+	}
+	
+	.top{
+		height: 40px;
+		background: blue;
+		color: #fff;
+		text-align:center;
+		line-height: 40px;
+	}
+	
+
+	
+	.center{
+      background-color: green;
+    width: 50px;
+     height: 50px;
+      position:absolute;
+      top :100px;
+      left:100px;
+      border:1px solid #E8E8E8;
+	}
+    ul{
+    	padding:0; margin:0; width:300px;height: 200px; border:20px solid #ccc; position:absolute; top:0px; left:400px; background:#FF9; color:#000;display: none; }
+     ul li{
+     	list-style-type: none;
+	margin-bottom: 10px;
+}
+input{
+	width:40px;
+	height:40px;
+	background:#e8e8e8;
+	margin:1px;
+	
+}
+
+
+	</style>
+</head>
+<body>
+	<div  class='wrap'>
+		<div  id="top" class="top">点击设置样式
+        <ul id="ull">
+           	<li>
+           		<span>请选择背景色：</span>
+           	<input id="c-red" type="button" value="红" style="background:red"> 
+           	<input id="c-yellow" type="button" value="黄" style="background:yellow"> 
+           	<input id="c-blue" type="button" value="蓝" style="background:blue"> 
+           </li>
+           	<li>
+           		<span>请选择宽(px)：</span>
+             <input id="w-1" type="button" value="150"> 
+              <input id="w-2" type="button" value="250"> 
+           	  <input id="w-3" type="button" value="300"> 
+           	</li>
+           	<li>
+           		<span>请选择高(px)：</span>
+           		<input id="h-1" type="button" value="150"> 
+              <input id="h-2" type="button" value="250"> 
+           	  <input id="h-3" type="button" value="300"> 
+           	</li>
+           	<li>
+           		<button id="btn-1">恢复</button>
+           	 	<button id="btn-2">确定</button>
+           	</li>
+           </ul>
+           
+		</div>
+			<div id="center" class='center'></div>
+         
+	</div>
+<script type="text/javascript">
+	var 
+	t=document.getElementById('top');
+    var
+     u=document.getElementById('ull');
+    var
+     s=document.getElementById('center')
+    var r=document.getElementById('c-red')
+  var b=document.getElementById('c-blue')
+ var y=document.getElementById('c-yellow')
+ var w1=document.getElementById('w-1')
+ var w2=document.getElementById('w-2')
+ var w3=document.getElementById('w-3')
+ var h1=document.getElementById('h-1')
+ var h2=document.getElementById("h-2")
+ var h3=document.getElementById('h-3')
+var b1=document.getElementById('btn-1')
+var b2=document.getElementById('btn-2')
+     t.onclick=function(){
+    	u.style.display="block";
+    }
+   r.onclick=function(){
+    	s.style.background="red";
+    }
+    b.onclick=function(){
+    	s.style.background="blue";
+    }
+    y.onclick=function(){
+    	s.style.background="yellow";
+	}
+    w1.onclick=function(){
+    	s.style.width="150px";
+    }
+     w2.onclick=function(){
+    	s.style.width="250px";
+    } 
+    w3.onclick=function(){
+    	s.style.width="300px";
+    }
+    h1.onclick=function(){
+        	s.style.height="150px";
+    }
+     
+   h2.onclick=function(){
+     s.style.height="250px";
+   }
+   h3.onclick=function(){
+   	s.style.height='300px';
+   }
+   b1.onclick=function(){
+   	s.style.width="50px";
+   	s.style.height="50px";
+   	s.style.background="green";
+   }
+   b2.onclick=function(){
+    u.style.display="none";
+    }
+        
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>消除表情小游戏</title>
+	<style>
+		#title{text-align: center;}
+		#box{width: 1000px;height: 600px;border: 1px solid #000;position: relative; margin: 0px auto;top: 40px;}
+		#score{width: 100px;height: 80px;position: absolute;left: -102px;top: 0;border: 1px solid #000;background: yellow}
+		#em{position: absolute;left: 0;top: 0;width: 24px;height: 24px;}
+	</style>
+	<script src="yuse.js"></script>
+	<script>
+		window.onload = function(){
+			var oInp = document.getElementsByTagName('input')[0];
+			var aP = document.getElementsByTagName('p');
+			var em = document.getElementById('em');
+			var oImg = em.getElementsByTagName('img')[0];
+			var oBox = document.getElementById('box');
+			var aSpan = document.getElementsByTagName('span');
+			oBox.shakeOff = true;
+			em.shakeOff = true;
+			var timer = null;
+			oInp.Off = true;
+			var num = 0;
+			var speed = 1;
+			var score1 = 0;
+			var score2 = 0;
+
+			oInp.onclick = function(){
+				if (oInp) {
+					oInp.Off = false;
+					oInp.value = '游戏进行中....'
+					oInp.disabled = 'disabled';
+					youxi();
+				}
+			};
+
+			function youxi(){
+				var random1 = Math.round(Math.random() * 11 + 1);
+				var random2 = Math.round(Math.random() * 1000);
+				oImg.src = 'img/' + random1 + '.png';
+				em.style.left = random2 + 'px';
+				num = 0;
+				em.timer = setInterval(function(){
+					em.style.top = num + 'px';
+					if (num == 576) {
+						shake(oBox, 'top', function(){
+							clearInterval(em.timer);
+							score2++;
+							aSpan[1].innerHTML = score2;
+							if (score2 != 10) {
+								youxi();
+							}else{
+								alert('失败了~ 重新开始吧');
+								score1 = 0;
+								score2 = 0;
+								aSpan[0].innerHTML = score1;
+								aSpan[1].innerHTML = score2;
+								speed = 1;
+								oInp.disabled = false;
+								oInp.value = '开始游戏';
+							}
+						})
+					}
+					num += speed;
+					if (num > 576) {
+						num = 576;
+					}
+					em.onclick = function(){
+						clearInterval(em.timer);
+						oImg.src = 'img/qq.png';
+						shake(em, 'left',function(){
+							num = 0;
+							speed++;
+							youxi();
+						});
+						score1++;
+						aSpan[0].innerHTML = score1;
+					}
+				}, 30);
+
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div id="title">
+		<h1>你的鼠标有多快？</h1>
+		<p>游戏说明：点击“开始游戏”，随机掉下QQ表情，点中它，千万别让它掉下去！！</p>
+		<input type="button" value="开始游戏">
+	</div>
+	<div id="box">
+		<div id="score">
+			<p>得分 : <span>0</span>分</p>
+			<p>失分 : <span>0</span>分</p>
+		</div>
+		<div id="em">
+			<img src="" alt="">
+		</div>
+	</div>
+</body>
+</html>

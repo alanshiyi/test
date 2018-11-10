@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>消除表情小游戏</title>
+	<style>
+		#title{text-align: center;}
+		#box{width: 1000px;height: 600px;border: 1px solid #000;position: relative; margin: 0px auto;top: 40px;}
+		#score{width: 100px;height: 80px;position: absolute;left: -102px;top: 0;border: 1px solid #000;background: yellow}
+		#em{position: absolute;left: 0;top: 0;width: 24px;height: 24px;}
+	</style>
+	<script src="yuse.js"></script>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<div id="title">
+		<h1>你的鼠标有多快？</h1>
+		<p>游戏说明：点击“开始游戏”，随机掉下QQ表情，点中它，千万别让它掉下去！！</p>
+		<input type="button" value="开始游戏">
+	</div>
+	<div id="box">
+		<div id="score">
+			<p>得分 : <span>0</span>分</p>
+			<p>失分 : <span>0</span>分</p>
+		</div>
+		<div id="em">
+			<img src="" alt="">
+		</div>
+	</div>
+</body>
+</html>

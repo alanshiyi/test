@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序</title>
+	<style>
+		ul,li,p{padding: 0;margin: 0;}
+		ul,li{list-style: none;}
+		#box{width: 1000px;height: 600px;border: 1px solid #000;margin: 50px auto;text-align: center;position: relative;}
+		input{ margin-top: 30px; width: 100px; height: 30px;line-height: 30px; border: 1px solid #ccc;background: #009999;color: #fff;outline: none;}
+		ul{width: 1000px; height: 500px;top: 100px;position: absolute;background: #fff;}
+		ul li{width: 240px; height: 250px;float: left;padding: 0 5px 10px 5px;}
+		ul li img{width: 240px;height: 200px;vertical-align: top;}
+		p{background: #ccc;height: 30px; line-height: 30px; color: #006598;font-weight: bold;}
+	</style>
+	<script>
+		window.onload = function(){
+			var aLi = document.getElementsByTagName('li');
+			var aInp = document.getElementsByTagName('input');
+			aInp[0].Off = false;
+
+			var json = {
+				'Url' : ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg','img/6.jpg','img/7.jpg','img/8.jpg'],
+				'title' : ['1 - 言叶之庭01','2 - 言叶之庭02','3 - 言叶之庭03','4 - 言叶之庭04','5 - 言叶之庭05','6 - 言叶之庭06','7 - 言叶之庭07','8 - 言叶之庭08']
+			};
+			var num = [0,1,2,3,4,5,6,7];
+
+			url();
+			function url(){
+				for (var i = 0; i < num.length; i++) {
+					aLi[i].getElementsByTagName('img')[0].src = json.Url[num[i]];
+					aLi[i].getElementsByTagName('p')[0].innerHTML = json.title[num[i]];
+				}
+			}
+
+			aInp[0].onclick = function(){
+				if (!aInp[0].Off) {
+					aInp[0].Off = true;
+					aInp[0].value = '从小到大';
+					num.sort(function (a, b){
+						return b-a;
+					});
+					url();
+				}else{
+					aInp[0].Off = false;
+					aInp[0].value = '从大到小';
+					num.sort();
+					url();
+				}
+			}
+			aInp[1].onclick = function(){
+				num.sort(function (a,b){
+					return Math.random() - 0.5;
+				});
+				url();
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="从大到小" />
+		<input type="button" value="打乱顺序" />
+		<ul>
+			<li>
+				<img src="img/1.jpg" alt="">
+				<p>1 - 言叶之庭01</p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+			<li>
+				<img src="" alt="">
+				<p></p>
+			</li>
+		</ul>
+	</div>	
+</body>
+</html>
